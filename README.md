@@ -76,24 +76,3 @@ python main2.py
 	"code":-1,
 	"message":"No frontal face detected",
 }
-=======
-# Deep Learning based Face Verification REST Api
-
-## RUN
-```
-python main2.py
-
-```
-
-
-## ADD FACE
-```
-curl -X POST -F image=@images/rishabh.png 'http://localhost:5000/add?name=rishabh'
-
-```
-
-## Verify FACE
-```
-curl -X POST -F image=@images/rishabh.png 'http://localhost:5000/verify?name=rishabh'
->>>>>>> 03cb54bfb2c9bbfe1924cef0fe80e4ff8cade358
-```
