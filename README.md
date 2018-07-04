@@ -10,7 +10,7 @@ A POST request can be used to integrate face verification in your system.
 ```
 curl -X POST -F image=@sachin1.png 'http://localhost:5000/add?name=sachin'
 ```
--Verify
+- Verify
 ```
 curl -X POST -F image=@sachin2.png 'http://localhost:5000/verify?name=sachin'
 ```
@@ -21,7 +21,7 @@ pip install -r requirements.txt
 python main2.py
 ```
 
-##Output Response
+## Output Response
 
 ### Verify
 - First
@@ -32,7 +32,7 @@ python main2.py
 	"score":"0.8051153"
 }
 ```
--Second
+- Second
 ```
 {
 	"code":0,
@@ -70,7 +70,7 @@ python main2.py
 	"message":"Face added to the database",
 }
 ```
--Second
+- Second
 ```
 {
 	"code":-1,
