@@ -48,13 +48,15 @@ def verify():
                 handle = open("encoding2.pickle","wb")
                 pickle.dump(database,handle,protocol=pickle.HIGHEST_PROTOCOL)
                 handle.close()
-                if score <= 0.7:
+                if score <= 0.85:
                     output["code"] = 1
                     output["message"] = "Person is verified correctly"
+                    output["score"] = str(score)
                     return flask.jsonify(output)
                 else:
                     output["code"] = 0
                     output["message"] = "Person is not verified"
+                    output["score"] = str(score)
                     return flask.jsonify(output)
                 
             
