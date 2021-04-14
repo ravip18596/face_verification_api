@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Keras Face Verification System deployed as Flask REST API	
 
 ## What
@@ -14,9 +13,12 @@ curl -X POST -F image=@sachin1.png 'http://localhost:5000/add?name=sachin'
 ```
 curl -X POST -F image=@sachin2.png 'http://localhost:5000/verify?name=sachin'
 ```
+## API Flow Diagram
+<img width="1332" alt="image" src="https://user-images.githubusercontent.com/26693275/114663607-38a44e00-9d18-11eb-864d-6f2bfa5ac102.png">
+
 Here **name** should be unique to the person like emailid or something and image should be the image file containing the person's face.
 ## How to RUN 
-```
+```bash
 pip install -r requirements.txt
 python main2.py
 ```
@@ -76,3 +78,4 @@ python main2.py
 	"code":-1,
 	"message":"No frontal face detected",
 }
+
