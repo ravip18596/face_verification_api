@@ -17,7 +17,7 @@ model,graph = init()
 def verify():
     name = flask.request.args.get("name")
     image = flask.request.files["image"].read()
-    faceCascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+    faceCascade = cv2.CascadeClassifier('assets/haarcascade_frontalface_default.xml')
     name = str(name)
     image = Image.open(io.BytesIO(image))
     img = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
@@ -29,7 +29,7 @@ def verify():
             face = img[y:y+h,x:x+w]
             resize_img = cv2.resize(face,(96,96))
             with graph.as_default():
-                handle = open("encoding2.pickle","rb")
+                handle = open("assets/encoding2.pickle", "rb")
                 database = pickle.load(handle)
                 handle.close()
                 img = resize_img[...,::-1]
@@ -45,7 +45,7 @@ def verify():
                 score = dist
                 print("Score:-  {}".format(score))
                 
-                handle = open("encoding2.pickle","wb")
+                handle = open("assets/encoding2.pickle", "wb")
                 pickle.dump(database,handle,protocol=pickle.HIGHEST_PROTOCOL)
                 handle.close()
                 if score <= 0.85:
@@ -83,7 +83,7 @@ def add():
         for (x,y,w,h) in face:
             face = img[y:y+h,x:x+w]
             resize_img = cv2.resize(face,(96,96))
-            handle = open("encoding2.pickle","rb")
+            handle = open("assets/encoding2.pickle", "rb")
             database = pickle.load(handle)
             handle.close()
             with graph.as_default():
@@ -92,7 +92,7 @@ def add():
                 x_train = np.array([img])
                 embedding = model.predict_on_batch(x_train)
                 database[name] = embedding
-                handle = open("encoding2.pickle","wb")
+                handle = open("assets/encoding2.pickle", "wb")
                 pickle.dump(database,handle,protocol=pickle.HIGHEST_PROTOCOL)
                 handle.close()
                 output["code"] = 1 
