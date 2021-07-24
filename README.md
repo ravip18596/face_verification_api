@@ -18,9 +18,16 @@ curl -X POST -F image=@sachin2.png 'http://localhost:5000/verify?name=sachin'
 
 Here **name** should be unique to the person like emailid or something and image should be the image file containing the person's face.
 ## How to RUN 
+### CMD
 ```bash
 pip install -r requirements.txt
-python main2.py
+python app.py
+```
+### Docker
+```bash
+docker build -t face_api:latest .
+docker run -dp 5000:5000 face_api
+curl -X GET http://0.0.0.0:5000/
 ```
 
 ## Output Response
