@@ -76,7 +76,7 @@ def verify():
 def add():
     name = flask.request.args.get("name")
     image = flask.request.files["image"].read()
-    faceCascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+    faceCascade = cv2.CascadeClassifier('assets/haarcascade_frontalface_default.xml')
     name = str(name)
     image = Image.open(io.BytesIO(image))
     img = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
