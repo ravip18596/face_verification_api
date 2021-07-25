@@ -30,6 +30,14 @@ docker run -dp 5000:5000 face_api
 curl -X GET http://0.0.0.0:5000/
 ```
 
+**Pre-built docker image at `docker pull ravip18597/face-api:v1`**
+
+### Kubernetes
+```bash
+kubectl apply -f ./deployment.yaml
+minikube servive face-api
+```
+
 ## Output Response
 
 ### Verify

@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: face-api
+  labels:
+    run: face-api
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 5000
+    targetPort: 80
+    protocol: TCP
+    name: http
+  selector:
+    run: face-api
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: face-api
+spec:
+  selector:
+    matchLabels:
+      run: face-api
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: face-api
+    spec:
+      containers:
+      - name: face-api
+        image: ravip18597/face-api:v1.1
+        ports:
+        - containerPort: 5000
